@@ -101,12 +101,12 @@ cp .env.example .env
 Preencha com seu token:
 
 ```env
-GITHUB_TOKEN=ghp_seu_token_aqui
+EXPO_PUBLIC_GITHUB_TOKEN=ghp_seu_token_aqui
 ```
 
 > **Atenção:** o arquivo `.env` já está no `.gitignore`. Nunca commite credenciais.
 
-Para gerar um token: [github.com/settings/tokens](https://github.com/settings/tokens) — escopo mínimo necessário: `public_repo`.
+Para gerar um token: [github.com/settings/tokens](https://github.com/settings/tokens) — nenhum escopo necessário para repositórios públicos.
 
 ---
 
@@ -278,14 +278,6 @@ Cada módulo (search, repository, issues) agrupa suas próprias telas, hooks e s
 - React Navigation com `createNativeStackNavigator`
 - Alias de importação `@/` configurado via `tsconfig.json`
 
-### [Refactor] Reestruturação de pastas
-- Removidos: `app/services/` global, `app/store/`, `app/types/`, `modules/search/routes/`
-- Renomeado: `modules/details/` → `modules/repository/`, `modules/showCase/` → `modules/showcase/`
-- Criado: `src/design-system/` com `tokens/`, `components/` e `theme/`
-- Criado: `src/shared/types/github.ts` com interfaces tipadas da API
-- Criado: `ThemeProvider` + `useTheme` com suporte a light/dark
-- Corrigido: `App.tsx` agora usa `<ThemeProvider>` + `<SafeAreaProvider>` + `<Navigation>`
-
 ### [Setup] Splash Screen + Fonte Nunito
 - Instalado `@expo-google-fonts/nunito` — variantes: 400Regular, 600SemiBold, 700Bold, 800ExtraBold
 - `SplashScreen.preventAutoHideAsync()` mantém a splash até as fontes carregarem
@@ -294,13 +286,3 @@ Cada módulo (search, repository, issues) agrupa suas próprias telas, hooks e s
 - Plugin `expo-splash-screen` com `image`, `resizeMode`, `backgroundColor` e `imageWidth` (sem omitir `image` — caso contrário o prebuild não gera o logo nativo)
 - `SafeAreaProvider` movido para dentro de `ThemeProvider` (ordem correta de providers)
 
-### [Refactor] Reestruturação de pastas
-- Removidos: `app/services/` global (duplicava os `services/` dentro de cada módulo), `app/store/` (sem uso com TanStack Query), `app/types/` global
-- Removido: `modules/search/routes/` (navegação centralizada em `app/routes/`)
-- Renomeado: `modules/details/` → `modules/repository/` (nome mais autodescritivo)
-- Renomeado: `modules/showCase/` → `modules/showcase/` (padronização lowercase)
-- Criado: `src/design-system/` com `tokens/`, `components/` e `theme/`
-- Criado: `src/shared/types/github.ts` com interfaces tipadas da API
-- Criado: `ThemeProvider` + `useTheme` com suporte a light/dark
-- Criado: tokens completos — `colors.ts`, `spacing.ts`, `radius.ts`, `typography.ts`
-- Corrigido: `App.tsx` agora usa `<ThemeProvider>` + `<Navigation>` corretamente
