@@ -6,6 +6,7 @@ App mobile em **React Native + Expo** que integra com a API pública do GitHub, 
 
 ## Índice
 
+- [Design das telas](#design-das-telas)
 - [Pré-requisitos](#pré-requisitos)
 - [Clone, instalação e execução](#clone-instalação-e-execução)
 - [Variáveis de ambiente (opcional)](#variáveis-de-ambiente-opcional)
@@ -13,6 +14,16 @@ App mobile em **React Native + Expo** que integra com a API pública do GitHub, 
 - [Design System & Tema](#design-system--tema)
 - [Decisões técnicas](#decisões-técnicas)
 - [Histórico de ajustes](#histórico-de-ajustes)
+
+---
+
+## Design das telas
+
+Protótipos criados no **Pencil** antes da implementação, seguindo os tokens de cor e tipografia da identidade Alymente.
+
+| Busca | Detalhes | Issues | Design System |
+|:---:|:---:|:---:|:---:|
+| ![Search](docs/screen-search.png) | ![Repository](docs/screen-repository.png) | ![Issues](docs/screen-issues.png) | ![Showcase](docs/screen-showcase.png) |
 
 ---
 
