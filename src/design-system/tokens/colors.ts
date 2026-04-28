@@ -14,6 +14,9 @@ export const lightColors = {
   success:        '#47c04a',
   warning:        '#ee6a2f',
   danger:         '#c53938',
+  // Cores semânticas para conteúdo sobre o fundo primary
+  onPrimary:      '#ffffff',
+  onPrimaryMuted: 'rgba(255,255,255,0.7)',
 } as const;
 
 export const darkColors = {
@@ -32,6 +35,9 @@ export const darkColors = {
   success:        '#47c04a',
   warning:        '#ee6a2f',
   danger:         '#ff8086',
+  onPrimary:      '#0a1a18',
+  onPrimaryMuted: 'rgba(10,26,24,0.7)',
 } as const;
 
-export type ColorTokens = typeof lightColors;
+/** Mapa de tokens de cor — chaves fixas, valores string (permite light e dark) */
+export type ColorTokens = { [K in keyof typeof lightColors]: string };
