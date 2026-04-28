@@ -21,9 +21,9 @@ App mobile em **React Native + Expo** que integra com a API pública do GitHub, 
 
 Protótipos criados no **Pencil** antes da implementação, seguindo os tokens de cor e tipografia da identidade Alymente.
 
-| Busca | Detalhes | Issues | Design System |
-|:---:|:---:|:---:|:---:|
-| ![Search](./docs/screen-search.png) | ![Repository](./docs/screen-repository.png) | ![Issues](./docs/screen-issues.png) | ![Showcase](./docs/screen-showcase.png) |
+| Busca | Menu Lateral | Detalhes | Issues | Design System |
+|:---:|:---:|:---:|:---:|:---:|
+| ![Search](./docs/screen-search.png) | ![Drawer](./docs/screen-drawer.png) | ![Repository](./docs/screen-repository.png) | ![Issues](./docs/screen-issues.png) | ![Showcase](./docs/screen-showcase.png) |
 
 ---
 
