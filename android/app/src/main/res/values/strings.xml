@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">alymente_test</string>
+  <string name="app_name">GitExplorer</string>
+  <string name="expo_splash_screen_resize_mode" translatable="false">contain</string>
 </resources>

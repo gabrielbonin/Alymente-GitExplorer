@@ -1,4 +1,4 @@
-package com.alymentetest
+package com.gabrielbonin.alymente.test
 
 import android.app.Application
 import android.content.res.Configuration
