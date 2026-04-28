@@ -3,7 +3,7 @@ import type { GithubIssue } from "@/shared/types/github";
 const BASE_URL = "https://api.github.com";
 
 function buildHeaders(): HeadersInit {
-  const token = process.env.GITHUB_TOKEN;
+  const token = process.env.EXPO_PUBLIC_GITHUB_TOKEN;
   return {
     Accept: "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
@@ -18,7 +18,7 @@ async function handleResponse<T>(res: Response): Promise<T> {
       ? new Date(parseInt(reset, 10) * 1000).toLocaleTimeString("pt-BR")
       : null;
     throw new Error(
-      `rate limit excedido${time ? ` — reseta às ${time}` : ""}. Adicione GITHUB_TOKEN no .env.`
+      `rate limit excedido${time ? ` — reseta às ${time}` : ""}. Adicione EXPO_PUBLIC_GITHUB_TOKEN no .env.`
     );
   }
   if (res.status === 404) throw new Error("Repositório não encontrado.");
