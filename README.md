@@ -23,7 +23,7 @@ Protótipos criados no **Pencil** antes da implementação, seguindo os tokens d
 
 | Busca | Detalhes | Issues | Design System |
 |:---:|:---:|:---:|:---:|
-| ![Search](docs/screen-search.png) | ![Repository](docs/screen-repository.png) | ![Issues](docs/screen-issues.png) | ![Showcase](docs/screen-showcase.png) |
+| ![Search](./docs/screen-search.png) | ![Repository](./docs/screen-repository.png) | ![Issues](./docs/screen-issues.png) | ![Showcase](./docs/screen-showcase.png) |
 
 ---
 
@@ -291,7 +291,7 @@ Cada módulo (search, repository, issues) agrupa suas próprias telas, hooks e s
 - `SplashScreen.preventAutoHideAsync()` mantém a splash até as fontes carregarem
 - `SplashScreen.hideAsync()` chamado dentro de `useEffect` após `fontsLoaded === true`
 - `app.json` configurado com `splash.png`, `resizeMode: contain` e `backgroundColor: #005f53`
-- Plugin `expo-splash-screen` adicionado com `imageWidth: 200` para centralizar o logo
+- Plugin `expo-splash-screen` com `image`, `resizeMode`, `backgroundColor` e `imageWidth` (sem omitir `image` — caso contrário o prebuild não gera o logo nativo)
 - `SafeAreaProvider` movido para dentro de `ThemeProvider` (ordem correta de providers)
 
 ### [Refactor] Reestruturação de pastas
