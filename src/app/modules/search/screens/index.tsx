@@ -7,6 +7,8 @@ import {
   ActivityIndicator,
   TextInput,
   TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -111,6 +113,7 @@ export default function SearchScreen({ navigation }: Props) {
       />
 
       {/* ── Header verde ── */}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={[styles.header, { backgroundColor: theme.colors.primary }]}>
         {/* Linha: hamburger + título + botão de tema */}
         <View style={styles.headerTop}>
@@ -146,6 +149,7 @@ export default function SearchScreen({ navigation }: Props) {
             placeholder="react native, typescript…"
             placeholderTextColor="rgba(255,255,255,0.5)"
             returnKeyType="search"
+            onSubmitEditing={Keyboard.dismiss}
             autoCapitalize="none"
             autoCorrect={false}
             clearButtonMode="while-editing"
@@ -160,41 +164,44 @@ export default function SearchScreen({ navigation }: Props) {
           />
         </View>
       </View>
+      </TouchableWithoutFeedback>
 
       {/* ── Content — fundo do tema ── */}
-      <View style={[styles.content, { backgroundColor: theme.colors.background }]}>
-        {isLoading ? (
-          <Loading fullScreen />
-        ) : isError ? (
-          <ErrorMessage error={error} onRetry={refetch} />
-        ) : debouncedQuery.trim().length < 2 ? (
-          <EmptyState
-            title="Busque um repositório"
-            description="Digite ao menos 2 caracteres para começar"
-          />
-        ) : repos.length === 0 ? (
-          <EmptyState
-            title="Nenhum resultado"
-            description={`Não encontramos repositórios para "${debouncedQuery}"`}
-          />
-        ) : (
-          <FlatList
-            data={repos}
-            renderItem={renderItem}
-            keyExtractor={keyExtractor}
-            contentContainerStyle={styles.list}
-            ItemSeparatorComponent={() => <View style={styles.separator} />}
-            onEndReached={handleEndReached}
-            onEndReachedThreshold={0.4}
-            ListFooterComponent={renderFooter}
-            onRefresh={refetch}
-            refreshing={isLoading}
-            showsVerticalScrollIndicator={false}
-            keyboardShouldPersistTaps="handled"
-            keyboardDismissMode="on-drag"
-          />
-        )}
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <View style={[styles.content, { backgroundColor: theme.colors.background }]}>
+          {isLoading ? (
+            <Loading fullScreen />
+          ) : isError ? (
+            <ErrorMessage error={error} onRetry={refetch} />
+          ) : debouncedQuery.trim().length < 2 ? (
+            <EmptyState
+              title="Busque um repositório"
+              description="Digite ao menos 2 caracteres para começar"
+            />
+          ) : repos.length === 0 ? (
+            <EmptyState
+              title="Nenhum resultado"
+              description={`Não encontramos repositórios para "${debouncedQuery}"`}
+            />
+          ) : (
+            <FlatList
+              data={repos}
+              renderItem={renderItem}
+              keyExtractor={keyExtractor}
+              contentContainerStyle={styles.list}
+              ItemSeparatorComponent={() => <View style={styles.separator} />}
+              onEndReached={handleEndReached}
+              onEndReachedThreshold={0.4}
+              ListFooterComponent={renderFooter}
+              onRefresh={refetch}
+              refreshing={isLoading}
+              showsVerticalScrollIndicator={false}
+              keyboardShouldPersistTaps="handled"
+              keyboardDismissMode="on-drag"
+            />
+          )}
+        </View>
+      </TouchableWithoutFeedback>
     </SafeAreaView>
   );
 }
